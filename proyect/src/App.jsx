@@ -21,7 +21,7 @@ function App() {
 
   {/* <Persons names={names}/> */}
 
-  <Family persons={persons}/>
+  <Family personsAge={personsAge}/>
 
   </>
 

@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import FamilyMemberd from "./FamilyMember";
 
-const Family = ({family}) => {
+const Family = ({personsAge}) => {
 
     return(
-        family.map((f, i) => (
-            <FamilyMemberd name:family.name/>
+
+        personsAge.map((f, i) => (
+            
+            <FamilyMemberd name={f.name} age={f.age} key={i}/>
 
         ))
     )
@@ -13,7 +15,7 @@ const Family = ({family}) => {
 }
 
 Family.propTypes = {
-    family: PropTypes.array
+    personsAge: PropTypes.array
   };
 
   export default Family

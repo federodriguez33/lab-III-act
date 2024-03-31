@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types';
 
-const FamilyMemberd = ({family}) => {
+const FamilyMemberd = ({name, age}) => {
 
     return(
         
         <>
-        <h3>{family.name}</h3>
-        <p>{family.age}</p>
+        <h3>{name}</h3>
+        <p>{age}</p>
         </>
-        
+
         )
     
 
 }
 
 FamilyMemberd.propTypes = {
-    family: PropTypes.array
+    name: PropTypes.array,
+    age: PropTypes.number,
   };
 
   export default FamilyMemberd
