@@ -1,4 +1,3 @@
-//import React from 'react';
 import './App.css';
 import beers from "./component/ejBeer/beers/Beer";
 import BeerList from "./component/ejBeer/beerList/BeerList";
