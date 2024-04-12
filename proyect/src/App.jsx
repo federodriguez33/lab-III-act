@@ -1,5 +1,5 @@
 import './App.css'
-import Beers from "./component/beers/Beers";
+import beers from "./component/beers/Beers";
 
 function App() {
 
