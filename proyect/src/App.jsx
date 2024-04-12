@@ -14,13 +14,13 @@ function App() {
       {beers.map((beer) => (
         <>
         <Card>
-          <CardBody>
-          <h2>Cerveza: {beer.beerName}</h2>
-          <h3>Estilo {beer.beerStyle}</h3>
+          <Card.Body>
+          <Card.Title>Cerveza: {beer.beerName}</Card.Title>
+          <Card.Subtitle>Estilo {beer.beerStyle}</Card.Subtitle>
           <p>${beer.price}</p>
           <p>{beer.available}</p>
           {/* key={beer.id} */}
-          </CardBody>
+          </Card.Body>
           </Card>
         </>
       ))}
