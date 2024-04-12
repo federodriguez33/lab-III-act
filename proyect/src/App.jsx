@@ -18,8 +18,7 @@ function App() {
           <Card.Title>Cerveza: {beer.beerName}</Card.Title>
           <Card.Subtitle>Estilo {beer.beerStyle}</Card.Subtitle>
           <p>${beer.price}</p>
-          <p>{beer.available}</p>
-          {/* key={beer.id} */}
+          <Card.Title>{beer.available}</Card.Title>
           </Card.Body>
           </Card>
         </>
