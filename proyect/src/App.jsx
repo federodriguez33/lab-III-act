@@ -1,28 +1,38 @@
 import './App.css'
+//import { useState } from "react";
 import beers from "./component/beers/Beers";
-import { Card } from 'react-bootstrap';
+//import ChangeDollar from "./component/changeDollar/ChangeDollar";
+import { Card, Row, Col } from 'react-bootstrap';
 
 function App() {
 
+  // const [changeDollar, SetChangeDollar] = useState(1)
 
   return (
 
     <>
 
-      <h1>Carta completa</h1>
+      {/* <Button onClick={ChangeDollar}>Cambiar precio dolar</Button> */}
 
-      {beers.map((beer) => (
-        <>
-        <Card>
-          <Card.Body>
-          <Card.Title>Cerveza: {beer.beerName}</Card.Title>
-          <Card.Subtitle>Estilo {beer.beerStyle}</Card.Subtitle>
-          <p>${beer.price}</p>
-          <Card.Title>{beer.available}</Card.Title>
-          </Card.Body>
-          </Card>
-        </>
-      ))}
+      <h1 className='mb-4'>Carta completa</h1>
+      <Row xs={1} md={3} className="g-4">
+        {beers.map((beer) => (
+          <>
+            {Array.from({ length: 1 }).map((_, idx) => (
+              <Col key={idx}>
+                <Card className="card text-bg-light mb-3 shadow">
+                  <Card.Body>
+                    <Card.Title>Cerveza: {beer.beerName}</Card.Title>
+                    <Card.Subtitle>Estilo {beer.beerStyle}</Card.Subtitle>
+                    <p>Precio: ${beer.price}</p>
+                    <p>Disponible: {beer.available ? "si" : "no"}</p>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </>
+        ))}
+      </Row>
 
 
 
