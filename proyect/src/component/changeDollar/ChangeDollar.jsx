@@ -1,33 +1,32 @@
 import PropTypes from "prop-types";
 import { Form } from 'react-bootstrap';
 
-const ChangeDollar = ({pChangeDollar}) => {
 
-    const { changeDollar, SetChangeDollar } = pChangeDollar;
+const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) => {
+
 
     const handleChangeDollar = (e) => {
-        SetChangeDollar(e.target.value);
+        setChangeDollar(e.target.value);
     };
 
     return (
-        <>
-            <Form.Label>Precio dolar</Form.Label>
-            <Form.Control
-                type="text"
-                placeholder="Ingresar precio dolar"
-                onChange={handleChangeDollar}
-                value={changeDollar}
-            />
-        </>
+        <div className={`${showChangeDollarForm ? 'd-block' : 'd-none'}`}>
+                <Form.Label>Precio dolar</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Ingresar precio dolar"
+                    onChange={handleChangeDollar}
+                    value={changeDollar}
+                />
+        </div>
     )
 
 }
 
 ChangeDollar.propTypes = {
-    pChangeDollar: PropTypes.shape({
-        changeDollar: PropTypes.number.isRequired,
-        SetChangeDollar: PropTypes.func.isRequired
-    }).isRequired
-};
+    changeDollar: PropTypes.number,
+    setChangeDollar: PropTypes.func,
+    showChangeDollarForm: PropTypes.bool
+}
 
 export default ChangeDollar;
