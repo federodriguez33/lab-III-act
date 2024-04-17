@@ -10,7 +10,9 @@ const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) =
     };
 
     return (
-        <div className={`${showChangeDollarForm ? 'd-block' : 'd-none'}`}>
+        <>
+        {showChangeDollarForm &&
+        <div>
                 <Form.Label>Precio dolar</Form.Label>
                 <Form.Control
                     type="text"
@@ -18,7 +20,8 @@ const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) =
                     onChange={handleChangeDollar}
                     value={changeDollar}
                 />
-        </div>
+        </div>}
+        </>
     )
 
 }

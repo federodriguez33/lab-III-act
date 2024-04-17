@@ -44,7 +44,9 @@ const NewBeer = ({ onBeerDataSave, showNewBeerForm }) => {
     }
 
     return (
-        <div className={`${showNewBeerForm ? 'd-block' : 'd-none'}`}>
+        <>
+        {showNewBeerForm &&
+        <div>
             <Card className="m-4 w-100" bg="success">
                 <Card.Body>
                     <Form className="text-white" onSubmit={newBeerCreate}>
@@ -107,7 +109,8 @@ const NewBeer = ({ onBeerDataSave, showNewBeerForm }) => {
                     </Form>
                 </Card.Body>
             </Card>
-        </div>
+        </div>}
+        </>
     );
 
 };
