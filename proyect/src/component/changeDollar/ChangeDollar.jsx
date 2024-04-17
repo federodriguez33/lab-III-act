@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { Form } from 'react-bootstrap';
+import { propTypes } from "react-bootstrap/esm/Image";
 
 
 const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) => {
-
 
     const handleChangeDollar = (e) => {
         setChangeDollar(e.target.value);
@@ -11,16 +11,16 @@ const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) =
 
     return (
         <>
-        {showChangeDollarForm &&
-        <div>
-                <Form.Label>Precio dolar</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Ingresar precio dolar"
-                    onChange={handleChangeDollar}
-                    value={changeDollar}
-                />
-        </div>}
+            {showChangeDollarForm &&
+                <div>
+                    <Form.Label>Precio dolar</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Ingresar precio dolar"
+                        onChange={handleChangeDollar}
+                        value={changeDollar}
+                    />
+                </div>}
         </>
     )
 
@@ -29,7 +29,8 @@ const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) =
 ChangeDollar.propTypes = {
     changeDollar: PropTypes.number,
     setChangeDollar: PropTypes.func,
-    showChangeDollarForm: PropTypes.bool
+    showChangeDollarForm: PropTypes.bool,
+    precioDolar: propTypes.func
 }
 
 export default ChangeDollar;
