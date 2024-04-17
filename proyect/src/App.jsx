@@ -1,4 +1,5 @@
 import './App.css'
+import TableForm from "./component/tableForm/TableForm";
 
 function App() {
   
@@ -6,6 +7,8 @@ function App() {
   return (
     
   <>
+
+    <TableForm></TableForm>
 
   </>
 
