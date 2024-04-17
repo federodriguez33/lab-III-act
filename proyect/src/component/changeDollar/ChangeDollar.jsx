@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Form } from 'react-bootstrap';
-import { propTypes } from "react-bootstrap/esm/Image";
 
 
 const ChangeDollar = ({ changeDollar, setChangeDollar, showChangeDollarForm }) => {
