@@ -1,5 +1,5 @@
 import './App.css'
-import Table from "./component/table/Table";
+import Tables from "./component/table/Table";
 
 function App() {
   
@@ -9,7 +9,8 @@ function App() {
     
   <>
 
-    <Table netIncomes={netIncomes}></Table>
+    <Tables netIncomes={netIncomes}></Tables>
+
   </>
 
   )

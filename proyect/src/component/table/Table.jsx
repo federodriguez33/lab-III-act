@@ -1,23 +1,38 @@
 import PropTypes from "prop-types";
-    
-const Table = (netIncomes) => {
+import { Table } from 'react-bootstrap';
 
-    netIncomes.map()
-    
-    return(
+const Tables = ({ netIncomes }) => {
 
-        <table>
-            <tr>
-                <td>{}</td>
-                <td>{}</td>
-            </tr>
-        </table>
+    let totalSum = netIncomes.reduce((total, netIncome) => total + netIncome.income, 0);
+
+    return (
+
+        <>
+            <Table striped bordered hover>
+                <tbody>
+                    <tr>
+                        {netIncomes.map((netIncome, i) => (
+                            <td key={i}>
+                                <td>{netIncome.brand}</td>
+                                <td>{netIncome.income}</td>
+                            </td>
+                        ))}
+                    </tr>
+                </tbody>
+            </Table>
+
+
+
+
+            <p>Promedio total: {totalSum / netIncomes.length}</p>
+
+        </>
 
     )
 }
 
-Table.propTypes = {
+Tables.propTypes = {
     netIncomes: PropTypes.array
 }
 
-export default Table
+export default Tables
