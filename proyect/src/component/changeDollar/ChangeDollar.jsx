@@ -29,7 +29,6 @@ ChangeDollar.propTypes = {
     changeDollar: PropTypes.number,
     setChangeDollar: PropTypes.func,
     showChangeDollarForm: PropTypes.bool,
-    precioDolar: propTypes.func
 }
 
 export default ChangeDollar;

@@ -34,17 +34,11 @@ function App() {
   //     .then(response => {
   //       let data = response
   //       console.log(data)
-  //       let precio = data.compra
-  //       let precioDolar = PrecioDollar(precio)
+  //       SetChangeDollar(data.compra)
+  
   //     });
   // } catch (error) {
   //   console.error("Se produjo un error:", error);
-  // }
-
-  // const PrecioDollar = (precio) => {;
-
-  //   return(precio)
-
   // }
 
 
@@ -54,7 +48,7 @@ function App() {
 
       <div className='d-flex flex-column justify-content-center align-items-center'>
         <Button onClick={handleButtonClickChangeDollar}>{showChangeDollarForm ? "Cerrar" : "Cambiar precio del dolar"}</Button>
-        <ChangeDollar changeDollar={changeDollar} setChangeDollar={SetChangeDollar} showChangeDollarForm={showChangeDollarForm}/>
+        <ChangeDollar changeDollar={changeDollar} setChangeDollar={SetChangeDollar} showChangeDollarForm={showChangeDollarForm} />
       </div>
 
       <div className='d-flex flex-column justify-content-center align-items-center'>
@@ -73,7 +67,6 @@ function App() {
                   <Card.Body>
                     <Card.Title>Cerveza: {beer.beerName}</Card.Title>
                     <Card.Subtitle>Estilo {beer.beerStyle}</Card.Subtitle>
-                    {/* <p>Precio: {beer.price * PrecioDollar()}</p> */}
                     <p>Precio: ${changeDollar ? beer.price * changeDollar : beer.price}</p>
                     <p>Disponible: {beer.available ? "si" : "no"}</p>
                   </Card.Body>
