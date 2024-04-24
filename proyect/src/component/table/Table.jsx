@@ -1,30 +1,33 @@
 import PropTypes from "prop-types";
 import { Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Tables = ({ netIncomes }) => {
 
-    let totalSum = netIncomes.reduce((total, netIncome) => total + netIncome.income, 0);
+    let promedio = netIncomes.reduce((total, netIncome) => total + netIncome.income, 0) / netIncomes.length;
 
     return (
 
         <>
-            <Table striped bordered hover>
+
+            <h1 className="h1 d-flex mb-4">Tabla de empresas con sus respectivos ingresos netos</h1>
+
+            <Table striped bordered hover style={{ width: '75%', margin: "auto", marginBottom: "30px"}}>
                 <tbody>
                     <tr>
-                        {netIncomes.map((netIncome, i) => (
-                            <td key={i}>
-                                <td>{netIncome.brand}</td>
-                                <td>{netIncome.income}</td>
-                            </td>
-                        ))}
+                        <th>Empresa</th>
+                        <th>Ingreso neto</th>
                     </tr>
+                    {netIncomes.map((netIncome, i) => (
+                        <tr key={i}>
+                            <td>{netIncome.brand}</td>
+                            <td>{netIncome.income}</td>
+                        </tr>
+                    ))}
                 </tbody>
-            </Table>
+            </Table >
 
-
-
-
-            <p>Promedio total: {totalSum / netIncomes.length}</p>
+            <p>Promedio total: {promedio.toFixed(2)}</p>
 
         </>
 
