@@ -1,4 +1,5 @@
 import './App.css'
+import Login from './components/login/Login'
 
 function App() {
   
@@ -6,7 +7,7 @@ function App() {
   return (
     
   <> 
-
+  <Login/>
   </>
 
   )
