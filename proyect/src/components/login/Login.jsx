@@ -31,13 +31,38 @@
 
 
 
+
+import { useState } from "react";
+import { Form } from "react-bootstrap";
+
+
 function Login() {
 
-    const UserLogin = (e) => {
+    const [userName, setUserName] = useState(null)
 
-        
+    const handleInput = (e) => {
+
+        if (e.target.value.toLowerCase().includes("o")) {
+            alert("Por favor, ¡Nombres de usuario sin la letra 'o'!")
+        }
+
+        setUserName(e.target.value)
 
     }
+
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
+        
+    };
+
+    const handleRegister = () => {
+        
+        if (userName === "" || userName.toLowerCase().includes("o")) {
+            alert("Usuario inválido para registrarse")
+        }
+        
+    };
 
     return (
 
@@ -45,12 +70,14 @@ function Login() {
 
             <h1>Ingrese su Username</h1>
 
+            <Form onSubmit={handleSubmit}>
             <div className="input-group mt-5">
-                <input type="text" className="form-control" placeholder="Username aquí..." aria-label="Recipient's username" aria-describedby="button-addon2" />
-                <button className="btn btn-outline-secondary" type="button" id="button-addon2">Registrarse</button>
+                <input type="text" className="form-control" placeholder="Username aquí..." aria-label="Recipient's username" aria-describedby="button-addon2" onChange={handleInput}/>
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleRegister}>Registrarse</button>
             </div>
+            </Form>
 
-            <p></p>
+            <p className="text-danger mt-4">{userName}</p>
 
         </>
     )
