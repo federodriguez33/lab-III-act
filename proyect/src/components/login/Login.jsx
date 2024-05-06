@@ -38,7 +38,7 @@ import { Form } from "react-bootstrap";
 
 function Login() {
 
-    const [userName, setUserName] = useState(null)
+    const [userName, setUserName] = useState("")
 
     const handleInput = (e) => {
 
@@ -60,6 +60,8 @@ function Login() {
         
         if (userName === "" || userName.toLowerCase().includes("o")) {
             alert("Usuario inválido para registrarse")
+        } else {
+            alert("¡Usuario registrado correctamente!");
         }
         
     };
