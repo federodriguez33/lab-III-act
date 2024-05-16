@@ -19,7 +19,7 @@ const List = ({ listTask }) => {
 
         <>
         
-            {listTask && listTask === "" ? (
+            {listTask && listTask.length > 0 ? (
 
                 listTask.map((elemento, index) => (
                     <div className="form-check form-switch d-flex m-4" key={index}>
