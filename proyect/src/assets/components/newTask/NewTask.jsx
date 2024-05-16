@@ -15,17 +15,17 @@ const NewTask = ( {setListTask} ) => {
   }
 
   const agregarTarea = () => {
-    setListTask(taskList => [...taskList, nuevaTarea]); // Agregar la nueva tarea a la lista
+    setListTask(taskList => [...taskList, nuevaTarea]);
     console.log(nuevaTarea);
-    setNuevaTarea(""); // Limpiar el campo de entrada después de agregar la tarea
+    setNuevaTarea("");
   };
 
   return (
 
     <>
       <div className="input-group mb-3">
-        <input type="text" className="form-control" placeholder="Escriba la tarea a agregar..." aria-label="Recipient's username" aria-describedby="button-addon2" id='newTask' onChange={handleNewTask}/>
-        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={agregarTarea}>Agregar tarea</button>
+        <input type="text" className="form-control" style={{ width: '300px' }} placeholder="Escriba la tarea aquí..." aria-label="Recipient's username" aria-describedby="button-addon2" id='newTask' value={nuevaTarea} onChange={handleNewTask}/>
+        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={agregarTarea}>Agregar</button>
       </div>
     </>
 

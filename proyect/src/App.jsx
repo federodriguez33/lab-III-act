@@ -11,9 +11,10 @@ function App() {
   return (
 
     <>
+
       <h2 style={{ borderBottom: '2px solid black', paddingBottom: '5px' }}>Lista de tareas</h2>
       <NewTask setListTask={setListTask} />
-      <List listTask={listTask} />
+      <List listTask={listTask} setListTask={setListTask}/>
 
     </>
 
