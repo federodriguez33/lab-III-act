@@ -3,39 +3,51 @@ import { useState } from 'react';
 
 const List = ({ listTask }) => {
 
-    const [check, setCheck] = useState()
+    const [check, setCheck] = useState({})
 
-    const handleCheck = () => {
+    const handleCheck = (index) => {
 
+        setCheck({
+            ...check,
+            [index]: !check[index]
+        });
+        console.log(check)
 
     }
 
     return (
 
         <>
-            <h2>Lista de tareas</h2>
+        
+            {listTask && listTask === "" ? (
 
-            {listTask ? (
-
-                <div className="form-check form-switch d-flex m-4">
-
-                    {listTask.map((elemento, index) => (
-                        <>
-                        <input className="form-check-input me-2" type="checkbox" role="switch" id={`flexSwitchCheckDefault${index}`} onChange={}/>
-                        <label className="form-check-label" htmlFor={`flexSwitchCheckDefault${index}`}>{elemento}</label>
-                        </>
-                    ))}
-                    
-                </div>
+                listTask.map((elemento, index) => (
+                    <div className="form-check form-switch d-flex m-4" key={index}>
+                        <input
+                            className="form-check-input me-2"
+                            type="checkbox"
+                            role="switch"
+                            id={`flexSwitchCheckDefault${index}`}
+                            checked={check[index]}
+                            onChange={() => handleCheck(index)}
+                        />
+                        <label
+                            className="form-check-label"
+                            htmlFor={`flexSwitchCheckDefault${index}`}
+                            style={check[index] ? { textDecoration: "line-through" } : {}}
+                        >
+                            {elemento}
+                        </label>
+                    </div>
+                ))
 
             ) : (
 
-                <p>La lista se encuentra vacia, ¡agrega alguna!</p>
+                <p className='d-flex m-4'>La lista se encuentra vacía, ¡agregá alguna tarea!</p>
 
             )}
 
         </>
-
 
     )
 

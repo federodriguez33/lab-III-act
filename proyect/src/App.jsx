@@ -6,13 +6,14 @@ import './App.css'
 
 function App() {
 
-  const [listTask, setListTask] = useState(["Ir al supermercado",]);
+  const [listTask, setListTask] = useState([]);
 
   return (
 
     <>
-      <NewTask setListTask={setListTask}/>
-      <List listTask={listTask}/>
+      <h2 style={{ borderBottom: '2px solid black', paddingBottom: '5px' }}>Lista de tareas</h2>
+      <NewTask setListTask={setListTask} />
+      <List listTask={listTask} />
 
     </>
 
