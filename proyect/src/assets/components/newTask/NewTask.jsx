@@ -7,6 +7,8 @@ const NewTask = ( {setListTask} ) => {
 
   const handleNewTask = (e) => {
 
+    e.preventDefault()
+    
     setNuevaTarea(e.target.value)
     console.log(nuevaTarea);
 
