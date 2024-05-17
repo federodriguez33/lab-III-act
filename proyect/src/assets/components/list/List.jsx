@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { CiTrash } from "react-icons/ci";
-import { GoPencil } from "react-icons/go";
 
 
 const List = ({ listTask, setListTask }) => {
@@ -23,13 +22,9 @@ const List = ({ listTask, setListTask }) => {
         setListTask(newLiskTask);
         setCheck(prevCheck => ({
             ...prevCheck,
-            [task]: false
+            [task]: false // Tuve q hacer esto porq me agregaba la primer tarea de la lista con el estado del check borrado anteriormente
         }));
 
-    }
-
-    const modiTask = (task) => {
-        setListTask(listTask.map(elemento => elemento === task? elemento.target.value : elemento))
     }
 
     return (
@@ -56,7 +51,6 @@ const List = ({ listTask, setListTask }) => {
                             {elemento}
                         </label>
 
-                        <button><GoPencil style={{ width: '20px', height: '20px' }} onClick={() => modiTask(elemento)} /></button>
                         <button><CiTrash style={{ width: '20px', height: '20px' }} onClick={() => deletTask(elemento)} /></button>
 
                     </div>
