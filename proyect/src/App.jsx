@@ -1,86 +1,34 @@
-import './App.css';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
+import TimeDisplay from './assets/components/timeDisplay/TimeDisplay';
 
 function App() {
-  const [Hour, setHour] = useState(0);
-  const [Minute, setMinute] = useState(0);
-  const [Second, setSecond] = useState(0);
-  const [Millisecond, setMillisecond] = useState(0);
-  const [IsStart, setIsStart] = useState(false);
-  const IsPauseRef = useRef(false);
-  const timerRef = useRef(null);
-
-  const Sleep = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  };
-
-  const Start = useCallback(async () => {
-    for (let i = 0; i < 24; i++) {
-      for (let j = 0; j < 60; j++) {
-        for (let k = 0; k < 60; k++) {
-          for (let l = 0; l < 100; l++) {
-            if (!IsStart) return;
-            while (IsPauseRef.current) {
-              await Sleep(100);
-            }
-            setHour(i);
-            setMinute(j);
-            setSecond(k);
-            setMillisecond(l);
-            await Sleep(10);
-          }
-        }
-      }
-    }
-  }, [IsStart]);
-
-  const togglePause = () => {
-    IsPauseRef.current = !IsPauseRef.current;
-  };
-
-  const stopTimer = () => {
-    setIsStart(false);
-    clearTimeout(timerRef.current);
-  };
+  const [time, setTime] = useState(0); // tiempo en centésimas de segundo
+  const [running, setRunning] = useState(false);
 
   useEffect(() => {
-    if (IsStart) {
-      timerRef.current = setTimeout(Start, 0);
+    let timer;
+    if (running) {
+      timer = setInterval(() => {
+        setTime(prevTime => prevTime + 1);
+      }, 10);
     }
-    return () => clearTimeout(timerRef.current);
-  }, [IsStart, Start]);
+    return () => clearInterval(timer);
+  }, [running]);
 
-  const handleStartStop = () => {
-    setIsStart((prevIsStart) => !prevIsStart);
-    if (!IsStart) {
-      setHour(0);
-      setMinute(0);
-      setSecond(0);
-      setMillisecond(0);
-    }
+  const handleStart = () => setRunning(true);
+  const handleStop = () => setRunning(false);
+  const handleReset = () => {
+    setRunning(false);
+    setTime(0);
   };
 
   return (
-    <>
-      <div>
-        <h1>
-          {String(Hour).padStart(2, '0')}:
-          {String(Minute).padStart(2, '0')}:
-          {String(Second).padStart(2, '0')}:
-          {String(Millisecond).padStart(2, '0')}
-        </h1>
-      </div>
-
-      <button onClick={handleStartStop}>
-        {IsStart ? 'Stop' : 'Start'}
-      </button>
-      {IsStart && (
-        <button onClick={togglePause}>
-          {IsPauseRef.current ? 'Resume' : 'Pause'}
-        </button>
-      )}
-      <button onClick={stopTimer}>Stop</button>
-    </>
+    <div>
+      <TimeDisplay time={time} />
+      <button onClick={handleStart}>Iniciar</button>
+      <button onClick={handleStop}>Detener</button>
+      <button onClick={handleReset}>Reiniciar</button>
+    </div>
   );
 }
 
