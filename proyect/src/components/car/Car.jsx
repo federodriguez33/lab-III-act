@@ -19,7 +19,7 @@ const Car = ({ cartItems, removeFromCart }) => {
             {cartItems.map((item, index) => (
               <li key={index}>
                 {item.name} - ${item.price} - x{item.quantity}
-                <button onClick={() => removeFromCart(index)}>Remover elemento</button>
+                <button onClick={() => removeFromCart(item)}>Remover elemento</button>
               </li>
             ))}
           </ul>
