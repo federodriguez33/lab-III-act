@@ -3,11 +3,15 @@ import Car from "./assets/components/car/Car"
 
 const App = () => {
 
-const [products, setProducts] = useState([
+  const [products, setProducts] = useState([
     { name: 'MANZANA', price: 1, stock: 10 },
     { name: 'BANANA', price: 1, stock: 20 },
     { name: 'NARANJA', price: 2, stock: 15 },
   ]);
+
+  const [newName, setNewName] = useState("");
+  const [newPrice, setNewPrice] = useState(0);
+  const [newStock, setNewStock] = useState(0);
 
   const handleAddProduct = () => {
     const newProduct = {
@@ -24,6 +28,7 @@ const [products, setProducts] = useState([
     const existingProductI = products.findIndex(item => item.name === newProduct.name);
 
     if (existingProductI >= 0) {
+
       // El producto ya existe, actualiza el precio y el stock
       const updatedProducts = products.map((product, index) => {
         if (index === existingProductI) {
@@ -47,10 +52,6 @@ const [products, setProducts] = useState([
     }
 
   };
-
-  const [newName, setNewName] = useState("");
-  const [newPrice, setNewPrice] = useState(0);
-  const [newStock, setNewStock] = useState(0);
 
   const [mostrarFormAddProduct, setMostrarFormAddProduct] = useState(false);
 
@@ -119,7 +120,7 @@ const [products, setProducts] = useState([
 
     <div>
 
-<h1>Lista de productos</h1>
+      <h1>Lista de productos</h1>
       <ul>
         {products.map((product, index) => (
           <li key={index}>
@@ -129,7 +130,7 @@ const [products, setProducts] = useState([
           </li>
         ))}
       </ul>
-      
+
       <Car cartItems={cartItems} removeFromCart={removeFromCart} />
 
       <button onClick={() => setMostrarFormAddProduct(!mostrarFormAddProduct)}>
